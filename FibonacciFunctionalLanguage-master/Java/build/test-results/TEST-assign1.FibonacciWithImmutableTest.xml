@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assign1.FibonacciWithImmutableTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2014-09-18T22:07:09" hostname="jarvis" time="0.025">
+  <properties/>
+  <testcase name="testFibonacciSeriesForPostion0" classname="assign1.FibonacciWithImmutableTest" time="0.0"/>
+  <testcase name="testFibonacciSeriesForPostion1" classname="assign1.FibonacciWithImmutableTest" time="0.012"/>
+  <testcase name="testFibonacciSeriesForPostion2" classname="assign1.FibonacciWithImmutableTest" time="0.001"/>
+  <testcase name="testFibonacciSeriesForPostion4" classname="assign1.FibonacciWithImmutableTest" time="0.0"/>
+  <testcase name="testFibonacciSeriesForPostion6" classname="assign1.FibonacciWithImmutableTest" time="0.0"/>
+  <testcase name="testFibonacciSeriesForNegativePostion" classname="assign1.FibonacciWithImmutableTest" time="0.001"/>
+  <testcase name="testCanary" classname="assign1.FibonacciWithImmutableTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

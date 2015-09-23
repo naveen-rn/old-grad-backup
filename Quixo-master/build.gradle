@@ -1,0 +1,31 @@
+apply plugin: 'java'
+
+apply from: 'https://github.com/valkolovos/gradle_cobertura/raw/master/repo/gradle_cobertura/gradle_cobertura/1.0/coberturainit.gradle'
+
+sourceSets.main.java.srcDirs = ['Quixo/src']
+sourceSets.test.java.srcDirs = ['Quixo/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+}
+
+repositories {
+  mavenCentral()
+}
+
+task(runui, dependsOn: 'classes', type: JavaExec) {
+  
+	main = 'assign1.QuixoBoardFrame'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+cobertura {
+  coverageSourceDirs = sourceSets.main.java.srcDirs
+	coverageExcludes = ['.*Frame.*', '.*Panel.*']
+}
+
+test {
+  jvmArgs '-XX:-UseSplitVerifier'
+}
+
+defaultTasks 'clean', 'cobertura', 'runui'

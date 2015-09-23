@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+//apply from: "file:${projectDir}/jacoco.gradle"
+buildscript {
+   apply from: "$rootDir/jacoco.gradle"
+}
+
+sourceSets.main.java.srcDirs = ['FibonacciSeries/src']
+sourceSets.test.java.srcDirs = ['FibonacciSeries/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+}
+
+repositories {
+  mavenCentral()
+}
+
+tasks.withType(JavaCompile) { 
+  options.compilerArgs << '-Xlint:unchecked'
+} 
+
+defaultTasks 'clean', 'test'

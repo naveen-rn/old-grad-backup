@@ -1,0 +1,43 @@
+Data Structure for Step 1:
+----------------------------------------------------------
+source file name: src/NetFlixAnalysisDataAggregate.java
+
+class NetFlixAnalysisDataAggregate {
+    class Mapper() {
+        void setUp() {
+            calculate the text file name for each input file;
+            use this raw input file name as the movie_id; 
+        }
+
+        void Map() {
+            get values as Text;
+            Scan and parse using the "," delimiter;
+            if (buffer.size >= 2) {
+                this is because we have user_id, user_rating and 
+                    date and we will avoid using the movie_id in 
+                    each page;
+            }
+
+            map return value:
+                KEY     -> Text
+                VALUE   -> MapWritable
+            map(text_file_name, single_user_id and rating);
+        }
+    }
+
+    class Reducer() {
+        void Reduce() {
+            collect all the keys together;
+            reducer return value:
+                KEY     -> Text
+                VALUE   -> Text
+            write(text_file_name, list<user_id, rating>);
+        }
+    }
+
+    main driver class() {
+        setting input, output directory;
+        setting input, output format for mapper and reducer;
+        setting the number of reducers;
+    }
+}

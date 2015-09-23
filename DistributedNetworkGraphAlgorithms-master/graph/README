@@ -1,0 +1,1 @@
+This file contains the source code for the graph generators, various kinds of graph will be generated and the result will be stores in the <GRAPH_NAME>.txt file in the build directory

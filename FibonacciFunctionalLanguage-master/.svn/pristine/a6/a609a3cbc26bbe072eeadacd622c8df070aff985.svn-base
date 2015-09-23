@@ -1,0 +1,52 @@
+Files you check in outside of specific homework or assignment directory will not be reviewed or graded for that homework/assignment.
+
+Check in and modify files as many times as you like. You will not be able to modify the files after the deadline.
+
+You will work as a pair, both of you are responsible for the completed work in all assignments and homework. 
+Each of you are expected to put in your reasonable share of effort into it.
+
+The deadlines are strict, there will be no extensions. Don't email any code to Venkat.
+
+Your last check in before the deadline will be graded. So, if you break code (in assignments) before the deadline, you will lose.
+
+Please feel free to ask for frequent reviews (see the readme.txt file in the reviews folder for details on how to ask for reviews).
+
+You can evolve the answers and solutions based on the reviews to your pair and to other pairs in the course.
+Only the latest checkin at the time of review will be looked at. Also the final check in will be the only one graded.
+
+Please read the academic honesty policy posted on the course mailing list.
+
+Now to the assignment #1.
+====================================================================================================================
+
+Assign1 Due 11:59PM September 19th
+
+For this assignment we will use three different languages. One has to be a statically typed language.
+One has to be a dynamically typed languages. Do not pick two languages that are too similar to each other.
+
+In each of the language, create one or more functions to compute the Fibonacci series. Given a position, 
+where position is > 0, the functions will produce a series up to that position. For example, given position
+6, it will produce a series of values 1, 1, 2, 3, 5, 8. 
+
+If you choose a language that permits mutability, write one of the functions to use mutability.
+In addition, write a function that honors total immutability.
+Then write a function that uses recursion.
+
+For each language, create code with appropriate extensions. Create a gradle build file and/or a sh (or cmd)
+file that will compile (if necessary) and run the code.
+
+Suggestion: Start with one language. Write the code in that languages, evolve it using reviews. Once you've completed code in one language (and gotten a satisfactory review), then create in another language.
+
+After completing the coding (and only after that), answer the following questions:
+
+1. Discuss some of the things you have learned from working on this assignment.
+
+Replace this line with your answer.
+
+2. Where there any thing that surprised you or things that you did not expect.
+
+Replace this line with your answer.
+
+3. Give this experience, draw a comparison of the three languages used.
+
+Replace this line with your answer.

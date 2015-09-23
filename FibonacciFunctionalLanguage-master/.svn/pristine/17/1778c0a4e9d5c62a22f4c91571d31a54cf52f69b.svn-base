@@ -1,0 +1,56 @@
+Files you check in outside of specific homework or assignment directory will not be reviewed or graded for that homework/assignment.
+
+Check in and modify files as many times as you like. You will not be able to modify the files after the deadline.
+
+You will work as a pair, both of you are responsible for the completed work in all assignments and homework. 
+Each of you are expected to put in your reasonable share of effort into it.
+
+The deadlines are strict, there will be no extensions. Don't email any code to Venkat.
+
+Your last check in before the deadline will be graded. So, if you break code (in assignments) before the deadline, you will lose.
+
+Please feel free to ask for frequent reviews (see the readme.txt file in the reviews folder for details on how to ask for reviews).
+
+You can evolve the answers and solutions based on the reviews to your pair and to other pairs in the course.
+Only the latest checkin at the time of review will be looked at. Also the final check in will be the only one graded.
+
+Please read the academic honesty policy posted on the course mailing list.
+
+Now to the assignment #1.
+====================================================================================================================
+
+Assign1 Due 11:59PM September 19th
+
+For this assignment we will use three different languages. One has to be a statically typed language.
+One has to be a dynamically typed languages. Do not pick two languages that are too similar to each other.
+
+In each of the language, create one or more functions to compute the Fibonacci series. Given a position, 
+where position is > 0, the functions will produce a series up to that position. For example, given position
+6, it will produce a series of values 1, 1, 2, 3, 5, 8. 
+
+If you choose a language that permits mutability, write one of the functions to use mutability.
+In addition, write a function that honors total immutability.
+Then write a function that uses recursion.
+
+For each language, create code with appropriate extensions. Create a gradle build file and/or a sh (or cmd)
+file that will compile (if necessary) and run the code.
+
+Suggestion: Start with one language. Write the code in that languages, evolve it using reviews. Once you've completed code in one language (and gotten a satisfactory review), then create in another language.
+
+After completing the coding (and only after that), answer the following questions:
+
+1. Discuss some of the things you have learned from working on this assignment.
+
+We learned many things while working on this assignment. To begin with, we got acquainted with two new languages Scala and Erlang. 
+Programming in a complete immutable and functional language like Erlang was a very good, as well as a very new experience. And this also helped us to understand the easiness in programming a truly functional language, rather than trying to functional program in a language like Java. Apart from that, this assignment also taught us that just writing a correct code is not a good programming practice. A good program should always be correct, concise, less noisy and more readable. If we work on achieving that, program efficiency will automatically be improvised. And we are glad to know how to do that now and from here, a constant learning is needed to improvise that.
+ 
+2. Where there any thing that surprised you or things that you did not expect.
+
+Surprises !! Yes, the whole assignment was full of surprises. We did not expect that writing a non-recursive function can actually be more difficult than writing a recursive one. Though, we had some clues on how the reviews would be, like the one with the usage of Tuple in Java immutable function, others were really tricky to get caught in the first look. Still we are working to understand some of the review comments. Initially we had some conditional statements in Scala, but as per the review comments we changed them into pattern matching, this is example in which we are still looking a lot to understand. We never expected to write a Fibonacci without loops and recursion as we did for Erlang. It was difficult to believe its even possible. But only then we realized the power of that language. Here we also realized that we could survive without a lot of things that we thought are mandatory!
+
+3. Give this experience, draw a comparison of the three languages used.
+Java - Object oriented, Mutable, Static and Strong typed language. Code is more ceremonious and has statements. We have to specify the type of variable or function return explicitly to declare them. With our initial experience, we would never ever recommend someone to start learning functional programming with Java 8 features. 
+
+Scala - Both mutable and immutable, Static and Strong typed language. Code is less ceremonious compared to Java and has expressions. It was easier to get adapted to Scala. Supports the match-case feature which makes programming a lot simpler. We do not have to specify type information.
+
+Erlang - Immutable, Dynamic and Strong typed language. Code is not so ceremonious. Does not contain loops.

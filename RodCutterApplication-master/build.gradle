@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+apply from: "file:${projectDir}/clover.gradle"
+
+sourceSets.main.java.srcDirs = ['RodCut/src']
+sourceSets.test.java.srcDirs = ['RodCut/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+}
+
+repositories {
+  mavenCentral()
+}
+
+tasks.withType(Compile) { 
+  options.compilerArgs << '-Xlint:unchecked'
+} 
+
+defaultTasks 'clean', 'test'

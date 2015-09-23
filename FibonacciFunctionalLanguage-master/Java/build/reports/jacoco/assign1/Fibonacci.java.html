@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Fibonacci.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java</a> &gt; <a href="index.source.html" class="el_package">assign1</a> &gt; <span class="el_source">Fibonacci.java</span></div><h1>Fibonacci.java</h1><pre class="source lang-java linenums">package assign1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+<span class="fc" id="L10">public class Fibonacci {</span>
+
+    public List&lt;Integer&gt; fibCalcMutable(int position) {
+<span class="fc" id="L13">        List&lt;Integer&gt; fibList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        for (int i = 0; i &lt; position; i++) {</span>
+<span class="fc bfc" id="L15" title="All 4 branches covered.">            if (i == 0 || i == 1) {</span>
+<span class="fc" id="L16">                fibList.add(1);</span>
+            } else {
+<span class="fc" id="L18">                fibList.add(fibList.get(i - 1) + fibList.get(i - 2));</span>
+            }
+        }
+<span class="fc" id="L21">        return fibList;</span>
+    }
+
+    public List&lt;Integer&gt; fibCalcRecursive(List&lt;Integer&gt; fibList,
+                                          int position) {
+<span class="pc bpc" id="L26" title="1 of 4 branches missed.">        if (position &gt; 0 &amp;&amp; fibList.size() != position) {</span>
+<span class="fc" id="L27">            int newElement = </span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                (fibList.size() &lt; 2) ? 1 : </span>
+<span class="fc" id="L29">                 fibList.get(fibList.size() - 1) + </span>
+<span class="fc" id="L30">                 fibList.get(fibList.size() - 2);</span>
+<span class="fc" id="L31">            List&lt;Integer&gt; tempList = </span>
+<span class="fc" id="L32">                Stream.concat(fibList.stream(), Arrays.asList(newElement).stream())</span>
+<span class="fc" id="L33">                      .collect(Collectors.toList());</span>
+<span class="fc" id="L34">	    return fibCalcRecursive(tempList, position);</span>
+        }
+<span class="fc" id="L36">        return fibList;</span>
+    }
+
+    public List&lt;Integer&gt; fibCalcRecursive(int position) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (position &gt; 0) {</span>
+<span class="fc" id="L41">            List&lt;Integer&gt; fibList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L42">            fibList = fibCalcRecursive(fibList, position);</span>
+<span class="fc" id="L43">            return fibList;</span>
+        }
+<span class="fc" id="L45">        return Collections.emptyList();</span>
+    }
+
+    public List&lt;Integer&gt; fibCalcImmutable(int position) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (position &gt; 0) {</span>
+<span class="fc" id="L50">            List&lt;Integer&gt; temp    = Arrays.asList(1);</span>
+<span class="fc" id="L51">            List&lt;Integer&gt; fibList = </span>
+<span class="fc" id="L52">                Stream.iterate(1, x -&gt; x + 1)</span>
+<span class="fc" id="L53">                      .limit(position - 1)</span>
+<span class="fc" id="L54">                      .reduce(temp,</span>
+<span class="fc" id="L55">                        (base, index) -&gt; fibCalcHelper(base),</span>
+<span class="nc" id="L56">                        (a, b) -&gt; null);</span>
+<span class="fc" id="L57">            return fibList;</span>
+        }
+<span class="fc" id="L59">        return Collections.emptyList();</span>
+    }
+
+    public List&lt;Integer&gt; fibCalcHelper(List&lt;Integer&gt; base) {
+<span class="fc" id="L63">        List&lt;Integer&gt; t1 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L64">        t1.addAll(base);</span>
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">        if ((t1.size() &lt; 2) ? t1.add(1) : </span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">            t1.add(t1.get(t1.size() - 1) + t1.get(t1.size() - 2)));</span>
+<span class="fc" id="L67">        return t1;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

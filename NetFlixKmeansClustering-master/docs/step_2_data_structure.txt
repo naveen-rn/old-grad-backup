@@ -1,0 +1,38 @@
+Data Structure for Step 1:
+----------------------------------------------------------
+source file name: src/NetFlixAnalysisCanopyData.java
+
+class NetFlixAnalysisDataAggregate {
+    class Mapper() {
+        declare ArrayList of CanopyCollection and collect at every
+            step;
+
+        void Map() {
+            if (total_number of common users > 10) {
+                don't write this movie_id
+            } else {
+                add to the CanopyCollection arraylist;
+                map(movie_id, list<user_id, rating>);
+            }
+        }
+
+        void NetflixMovie(String, String) {}
+
+        void MatchCount(String, String) {
+            return total number of common users;
+        }
+    }
+
+    class Reducer() {
+        void Reduce() {
+            Do the same steps as the mapper, but with just one
+                reducer; 
+        }
+    }
+
+    main driver class() {
+        setting input, output directory;
+        setting input, output format for mapper and reducer;
+        setting the number of reducers;
+    }
+}

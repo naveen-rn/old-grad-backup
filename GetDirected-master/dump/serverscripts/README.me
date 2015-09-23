@@ -1,0 +1,20 @@
+This folder contains all the necessary files to set up a server in
+apache, you can import the files into the /etc/apache2/sites-available
+folder and make necessary changes in the apache2.conf folder in the 
+/etc/apache2/apache2.conf file.
+
+The changes to be made are adding the <directory> files into it, with
+the following proviledges
+
+ <Directory /home/naveen/public_html>
+      Options Indexes FollowSymLinks
+      AllowOverride None
+      Require all granted
+ </Directory>
+
+restart the server after enabling and disabling the necessary sites
+using
+
+sudo a2ensite servername to enable site
+sudo a2dissite servername to disable site
+

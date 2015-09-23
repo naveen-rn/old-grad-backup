@@ -1,0 +1,104 @@
+This project involves 5 different steps. Among the five steps, there
+are four MapReduce algorithms involved. In the brief, we are finding
+the K-Means for the given Netflix dataset.
+
+To find the K-means, we are intially setting up the input data files,
+finding the Canopy points and finally finding the Canopy distance vector 
+before moving to the K-means. Then once the K-means is found, the
+cleanup script is run.
+
+The steps are explained as follows:
+(Please refer the separate files for the data structure of the MapReduce 
+involved in each step. This is just a general explanation of the process)
+
+Step 1: Data SetUp
+----------------------------------------------------------------------
+Initially the input files are available as separate textfiles. Each
+text file has the inputs in the following format:
+
+text_file_1.txt
+movie_id_1:
+user1_id, user1_rating, date
+user2_id, user2_rating, date
+user3_id, user3_rating, date
+user4_id, user4_rating, date
+user5_id, user5_rating, date
+user6_id, user6_rating, date
+
+Similarly for different text files. The name of the text files
+correspond to the movie_id. Now, we run a mapreduce program to get the
+input and arrange the input data set in the following format:
+
+movie_id_1 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_2 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_3 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_4 user1_id:rating, user2_id:rating, user3_id:rating
+
+The output of this step can be found in the output_step1 directory
+The corresponding source code for this step is :
+src/NetFlixAnalysisDataAggregate.java
+
+To run this step alone, we can use the following command
+yarn jar build/lib/NetFlix.jar examples.NetFlixAnalysisDataAggregate input/ output_step1/
+
+
+Step 2: Canopy Data Selection
+----------------------------------------------------------------------
+The result of the step-1 can be used as input for this step. Here, we
+are finding the canopy data set. For example, if there are 'n' users
+who are common to both movie_id_1 and movie_id_2, we can select any
+one of the movie_id as the canopy data.
+
+This 'n' can be user defined, here we have defined 'n' to be 10
+
+For, example if we have 19 movie_id's from step-1, based on the canopy
+data selection if there are more than 'n' common users in two
+movie_id's, we will get 18 movie_id's at the end of this step.
+
+Input data format:
+
+movie_id_1 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_2 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_3 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_4 user1_id:rating, user2_id:rating, user3_id:rating
+
+Output data format:
+
+movie_id_1 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_2 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_3 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_4 user1_id:rating, user2_id:rating, user3_id:rating
+
+Here, both the input and output data format are same. Only the data
+varies.
+
+The output of this step can be found in the output_step2 directory
+The corresponding source code for this step is :
+src/NetFlixAnalysisCanopyData.java
+
+To run this step alone, we can use the following command
+yarn jar build/lib/NetFlix.jar examples.NetFlixAnalysisCanopyData output_step1/ output_step2/
+
+
+Step 3 - Canopy Data distribution
+----------------------------------------------------------------------
+Same as the previous step, but here we are using the results of Step 2
+in Step 1.
+
+Input Data Set will be:
+
+movie_id_1 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_2 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_3 user1_id:rating, user2_id:rating, user3_id:rating
+movie_id_4 user1_id:rating, user2_id:rating, user3_id:rating
+
+Output data set will be:
+
+movie_id_1 {user1_id:rating, user2_id:rating, user3_id:rating}
+          :{canopy_1:distance, canopy_2:distance}
+movie_id_2 user1_id:rating, user2_id:rating, user3_id:rating
+          :{canopy_1:distance, canopy_2:distance}
+movie_id_3 user1_id:rating, user2_id:rating, user3_id:rating
+          :{canopy_1:distance, canopy_2:distance}
+movie_id_4 user1_id:rating, user2_id:rating, user3_id:rating
+          :{canopy_1:distance, canopy_2:distance}

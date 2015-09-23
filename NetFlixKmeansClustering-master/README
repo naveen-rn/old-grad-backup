@@ -1,0 +1,70 @@
+----------------------------------------------------------------------
+                MAPREDUCE HOMEWORK ON NETFLIX DATA
+----------------------------------------------------------------------
+Author : Naveen Namashivayam R (naveen-rn)
+Email  : naveen.namashivayam.r@gmail.com
+Message: Please email the author for any updates or queries related to
+         this project
+Repo   : The private repository location is available at
+         https://naveen-rn@bitbucket.org/naveen-rn/netflixkmeansclustering.git
+         Please email the author to get access to the repository
+----------------------------------------------------------------------
+
+GOAL:
+----------------------------------------------------------------------
+Cluster the Netflix movies using K-means clustering. 
+You are given a set of movies and a list of which eview which rater 
+has given to which movies. Your goal is to create four hundred or so
+sets of related movies. 
+
+Other goals include,
+
+1. Understand the K-means and canopy clustering algorithms and their 
+   relationship
+2. Implement these algorithms in MapReduce
+3. Analyze the effect of running these algorithms on a large data set
+
+README:
+-----------------------------------------------------------------------
+How to run the scripts?
+
+The scripts are provided in the scripts/ directory. The scripts are
+created to run from a local system. Please, modify the scripts for the
+cluster or some other virtual machines accordingly.
+
+What is the build.xml?
+
+build.xml is the major build file, it will build all the source codes
+which are available in the src/ directory.
+
+What are the source files in the src/ directory?
+
+The src/ directory contains the main source files. There are four
+files:
+1. NetFlixAnalysisDataAggregate.java - This for data modification for
+the first step.
+2. NetFlixAnalysisCanopyData.java - This for the canopy selection for
+the second step.
+3. NetFlixAnalysisCanopyMovies.java - This for the canopy distance
+calculation for the third step.
+4. NetFlixKMeans.java - This is the KMeans mapreduce algorithm
+
+
+How to run the program?
+
+1. untar the files
+2. ant build or ant
+3. if the build is successful, you will get a build folder with the
+BUILD SUCCESSFUL message
+4. to run in a local machine, create a directory named input and place
+the sample input files in it. (sample input directory is provided)
+5. source ./scripts/runscripts
+6. now the outputs of all the steps are generated as separate
+directory
+
+What are docs?
+
+Please refer the docs directory for the various documents related to
+the data structure and other related steps
+-----------------------------------------------------------------------
+
